@@ -3,5 +3,8 @@ module.exports.home = (req, res) => {
 }
 module.exports.hpage = (req, res) =>
 {
-    return res.end("<h1> This is Home Page of iCon !");
+    return res.render('home',
+        {
+        title:'Home'
+    });
 }
