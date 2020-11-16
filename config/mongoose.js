@@ -9,3 +9,4 @@ db.on('error', console.error.bind(console, "Error occured !"));
 db.once('open', () => {
     console.log("Connected to Database Succesfully !");
 })
+module.exports = db;
