@@ -9,12 +9,12 @@ const port = 8100;
 const db = require('./config/mongoose');
 
 app.use(express.urlencoded());
+
 app.use(cookieParser());
 
 app.use(express.static('./assets'));
 
 const expressLayouts = require('express-ejs-layouts');
-const { urlencoded } = require('express');
 
 app.use(expressLayouts);
 
