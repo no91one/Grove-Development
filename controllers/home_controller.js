@@ -1,10 +1,9 @@
-module.exports.home = (req, res) => {
-    return res.end('<h1>Express is running for Flock !');
-}
-module.exports.hpage = (req, res) =>
-{
-    return res.render('home',
-        {
-        title:'Home'
+module.exports.home = function(req, res){
+    console.log(req.cookies);
+    res.cookie('user_id', 25);
+    return res.render('home', {
+        title: "Home"
     });
 }
+
+// module.exports.actionName = function(req, res){}
