@@ -1,6 +1,30 @@
 <title>
     <%= title  %>
 </title>
-    <h1>
-        Flock / <%= title %>
-    </h1>
+<h1>
+    Flock / <%= title %>
+</h1>
+<section id="feed-posts">
+    <h4>Posts</h4>
+    <form action="/posts/create" id="new-post-form" method="post">
+        <textarea name="content" id="new-post-content" cols="30" rows="4" aria-placeholder="Type here..."></textarea>
+        <input type="submit" value="Post">
+    </form>
+    <div id="posts-displayed">
+        <ul>
+            <%for(post of posts){%>
+            <li>
+                <p>
+                    By
+                    <%=post.user.name%>
+                    <hr style="width: 20%;">
+                </p>
+                <p>
+                    <%=post.content%>
+                </p>
+            </li>
+            <%}%>
+        </ul>
+       
+    </div>
+</section>
