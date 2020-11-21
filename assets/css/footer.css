@@ -1,0 +1,11 @@
+footer {
+  position: absolute;
+  bottom: 0;
+  height: 10vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #0f299e;
+  color: burlywood;
+}

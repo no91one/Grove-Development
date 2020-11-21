@@ -1,0 +1,26 @@
+header nav {
+  position: relative;
+  height: 10vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #0f299e;
+  color: burlywood;
+}
+
+header nav ul {
+  list-style: none;
+  width: auto;
+  margin-right: 2%;
+}
+
+header nav ul li {
+  display: inline;
+  margin-left: auto;
+}
+
+header nav ul a {
+  text-decoration: none;
+  color: bisque;
+}

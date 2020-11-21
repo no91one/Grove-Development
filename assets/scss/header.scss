@@ -1,0 +1,27 @@
+
+header{
+    
+    nav{
+        position: relative;
+        height: 10vh;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: rgb(15, 41, 158);
+        color: burlywood;
+        ul{
+            list-style: none;
+            width: auto;
+            margin-right: 2%;
+            li{
+            display: inline;
+            margin-left: auto;
+            }
+            a{
+                text-decoration: none;
+                color: bisque;
+            }
+        }
+    }
+}
