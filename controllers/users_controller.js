@@ -3,11 +3,24 @@ const User = require('../models/user');
 
 module.exports.profile = function (req, res) {
     return res.render('user_profile', {
-        
+
     })
 }
 
+module.exports.tUsers = function (req, res) {
+    User.find({}, (err, users) => {
+        if (err) {
+            console.log("Error in fetching user_list !", err);
+            return;
+        }
 
+        return res.render('flock_users', {
+            title: "Flock Users",
+            user_list: users
+        });
+
+    })
+}
 // render the sign up page
 module.exports.signUp = function (req, res) {
     return res.render('user_sign_up', {
@@ -48,7 +61,7 @@ module.exports.create = function (req, res) {
 
 // sign in and create a session for the user
 module.exports.createSession = function (req, res) {
-    return res.redirect('/users/profile');
+    return res.redirect('/');
 }
 
 module.exports.removeSession = (req, res) => {
