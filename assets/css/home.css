@@ -1,0 +1,44 @@
+h1 {
+  text-align: center;
+  margin-bottom: 5%;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+#feed-posts {
+  background-color: gray;
+  position: relative;
+  margin-left: 25%;
+  width: 50%;
+  margin-bottom: 5%;
+  padding: 3%;
+}
+
+#feed-posts h4 {
+  text-align: center;
+  margin-bottom: 5%;
+  font-size: large;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+#feed-posts [name="content"] {
+  margin-left: 25%;
+}
+
+#feed-posts ul {
+  list-style: none;
+}
+
+#feed-posts .each-post {
+  background-color: rgba(106, 83, 170, 0.746);
+  height: auto;
+  position: relative;
+  padding: 3%;
+  margin-top: 2%;
+  margin-right: 5%;
+}
+
+#feed-posts .each-post ul {
+  text-align: center;
+}

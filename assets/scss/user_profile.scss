@@ -1,6 +1,12 @@
-body{
-    background-color: royalblue;
-    // main{
-    //     margin-top: 10%;
-    // }
-}
+main
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    .profile-container{
+        display: flex;
+        flex-direction: column;
+        
+    }
+} 
