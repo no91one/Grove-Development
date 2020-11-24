@@ -1,0 +1,32 @@
+<li class="each-post">
+    <p>
+        <%=post.content%>
+    </p>
+    <small>
+        <%=post.user.name%>
+    </small>
+    <%if((locals.user)&&(locals.user.id==post.user.id)){%>
+    <button style="background-color: brown; ">
+        <a style="text-decoration: none; color: cornsilk;" href="/posts/destroy/<%=post.id%>">Del</a>
+    </button>
+    <%}%>
+
+    <div class="post-comments">
+        <%if(locals.user){%>
+        <form action="/comments/create" id="new-comment-form" method="post">
+            <textarea name="content" id="new-comment-content" cols="20" rows="2" placeholder="Type here...">
+                                    </textarea>
+            <input type="hidden" name="post" value="<%=post._id%>">
+            <input type="submit" value="Add Comment">
+        </form>
+        <%}%>
+
+        <div class="display-comments">
+            <ul id="post-comments-<%=post._id%>">
+                <%for(comment of post.comments){%>
+                    <%-include('_comment')-%>
+                <%}%>
+            </ul>
+        </div>
+    </div>
+</li>

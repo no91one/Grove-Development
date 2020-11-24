@@ -1,4 +1,4 @@
-<title><%=user.name%></title>
+<title><%=profile_user.name%></title>
 <link rel="stylesheet" href="/css/user_profile.css">
 <main>
     <div class="profile-container">
@@ -6,11 +6,21 @@
             Flock User's / Profile Page
         </h1>
 
+
+        <%if(locals.user.id==profile_user.id){%>
+        <form action="/users/update/<%=profile_user.id%>" method="post">
+            <input type="text" name="name" id="name" value="<%=user.name%>" required>
+            <input type="email" name="email" id="email" value="<%=user.email%>" required>
+            <button type="submit">Update</button>
+        </form>
+
+        <%}else{%>
         <p>
-            Name = <%=user.name%>
+            Name = <%=profile_user.name%>
         </p>
         <p>
-            Email = <%=user.email%>
+            Email = <%=profile_user.email%>
         </p>
+        <%}%>
     </div>
 </main>

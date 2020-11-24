@@ -5,10 +5,12 @@
 <h1>
     Flock / <%= title %>
 </h1>
+<div id="main-content">
 <section id="feed-posts">
+    
     <h4>Posts</h4>
     <%if(locals.user){%>
-        <!-- <button id="#add">+ Add Post</button> -->
+    <!-- <button id="#add">+ Add Post</button> -->
     <form action="/posts/create" id="new-post-form" method="post">
         <textarea name="content" id="new-post-content" cols="30" rows="4" aria-placeholder="Type here..."></textarea>
         <input type="submit" value="Post">
@@ -17,53 +19,22 @@
     <div id="posts-displayed">
             <ul>
                 <%for(post of posts){%>
-                    <li class="each-post">
-                        <p>
-                            <%=post.content%>
-                        </p>
-                        <small>
-                            <%=post.user.name%>
-                        </small>
-                        <%if((locals.user)&&(locals.user.id==post.user.id)){%>
-                            <button style="background-color: brown; ">
-                                <a style="text-decoration: none; color: cornsilk;" href="/posts/destroy/<%=post.id%>">Del</a>
-                            </button>
-                         <%}%>
 
-                    <div class="post-comments">
-                        <%if(locals.user){%>
-                        <form action="/comments/create" id="new-comment-form" method="post">
-                            <textarea name="content" id="new-comment-content" cols="20" rows="2" placeholder="Type here...">
-                                                    </textarea>
-                            <input type="hidden" name="post" value="<%=post._id%>">
-                            <input type="submit" value="Add Comment">
-                        </form>
-                        <%}%>
-
-                                <div class="display-comments">
-                                    <ul id="post-comments-<%=post._id%>">
-                                        <%for(comment of post.comments){%>
-                                        <li>
-                                            <%if((locals.user)&&(locals.user.id==comment.user.id)){%>
-                                                <button style="background-color: brown; ">
-                                                    <a style="text-decoration: none; color: cornsilk;" href="/posts/destroy/<%=comment._id%>">Del</a>
-                                                </button>
-                                             <%}%>
-                                            <p>
-                                                <%=comment.content%>
-                                            </p>
-                                            <small>
-                                                By
-                                                <%=comment.user.name%>
-                                            </small>    
-                                        </li>
-                                          <%}%>
-                                    </ul>
-                                 </div>
-                     </div>
-                </li>
+                <%- include('_post') -%>
+                
                 <%}%>
             </ul>
 
     </div>
 </section>
+<section id="user-friends">
+    <h4>Following</h4>
+    <ul>
+        <%for(u of all_users){%>
+            <li>
+                <a href="/users/profile/<%=u.id%>"><%=u.name%></a>
+            </li>
+        <%}%>
+    </ul>
+</section>
+</div>

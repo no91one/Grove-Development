@@ -5,16 +5,19 @@ h1 {
   font-weight: 900;
 }
 
-#feed-posts {
+#main-content {
+  display: flex;
+}
+
+#main-content #feed-posts {
   background-color: gray;
   position: relative;
-  margin-left: 25%;
+  margin-left: 10%;
   width: 50%;
-  margin-bottom: 5%;
   padding: 3%;
 }
 
-#feed-posts h4 {
+#main-content #feed-posts h4 {
   text-align: center;
   margin-bottom: 5%;
   font-size: large;
@@ -22,15 +25,15 @@ h1 {
   font-weight: 900;
 }
 
-#feed-posts [name="content"] {
+#main-content #feed-posts [name="content"] {
   margin-left: 25%;
 }
 
-#feed-posts ul {
+#main-content #feed-posts ul {
   list-style: none;
 }
 
-#feed-posts .each-post {
+#main-content #feed-posts .each-post {
   background-color: rgba(106, 83, 170, 0.746);
   height: auto;
   position: relative;
@@ -39,6 +42,15 @@ h1 {
   margin-right: 5%;
 }
 
-#feed-posts .each-post ul {
+#main-content #feed-posts .each-post ul {
   text-align: center;
+}
+
+#main-content #user-friends {
+  width: 30%;
+  padding: 10px;
+  height: auto;
+  margin-left: 5%;
+  border-left: 1.5px solid lightgray;
+  background-color: lightpink;
 }
