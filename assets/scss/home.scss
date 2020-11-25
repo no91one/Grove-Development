@@ -9,14 +9,17 @@ h1{
 }
 #main-content{
     display: flex;
-
+//    align-items: center;
+   justify-content: center;
     #feed-posts
     {
-        background-color: gray;
+        background-color: rgba(27, 39, 107, 0.465);
         position: relative;
-        margin-left: 10%;
-        width: 50%;
+        // margin-left: 25%;
+        min-width: 50%;
         padding: 3%;
+        box-shadow: -10px 10px 20px 2px rgba(26, 25, 25, 0.774);
+        border-radius: 10px;
         h4{
             // display: block;
             text-align: center;
@@ -31,12 +34,15 @@ h1{
         }
         ul{list-style: none;}
         .each-post{
-            background-color: rgba(106, 83, 170, 0.746);
+            background-color: rgba(102, 100, 195, 0.472);
             height: auto;
             position: relative;
             padding: 3%;
             margin-top: 2%;
             margin-right: 5%;
+            border-top: 1.4px solid whitesmoke;
+            box-shadow: -10px 10px 20px 2px rgba(26, 25, 25, 0.774);
+            border-radius: 10px;
             ul{
             text-align: center;
             }
@@ -47,7 +53,10 @@ h1{
         padding: 10px;
         height: auto;
         margin-left: 5%;
+        // margin-right: 10%;
         border-left: 1.5px solid lightgray;
-        background-color: lightpink;
+        background-color: rgba(27, 39, 107, 0.465);
+        box-shadow: -10px 10px 20px 2px rgba(26, 25, 25, 0.774);
+        border-radius: 10px;
     }
 }

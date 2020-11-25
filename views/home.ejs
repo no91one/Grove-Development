@@ -2,39 +2,40 @@
     <%= title  %>
 </title>
 <link rel="stylesheet" href="/css/home.css">
-<h1>
+<h1 style="color: rgb(219, 156, 73);">
     Flock / <%= title %>
 </h1>
 <div id="main-content">
-<section id="feed-posts">
-    
-    <h4>Posts</h4>
-    <%if(locals.user){%>
-    <!-- <button id="#add">+ Add Post</button> -->
-    <form action="/posts/create" id="new-post-form" method="post">
-        <textarea name="content" id="new-post-content" cols="30" rows="4" aria-placeholder="Type here..."></textarea>
-        <input type="submit" value="Post">
-    </form>
-    <%}%>
-    <div id="posts-displayed">
+    <section id="feed-posts">
+        <h4>F E E D</h4>
+        <%if(locals.user){%>
+        <!-- <button id="#add">+ Add Post</button> -->
+        <form action="/posts/create" id="new-post-form" method="post">
+            <textarea name="content" id="new-post-content" cols="30" rows="4"
+                aria-placeholder="Type here..."></textarea>
+            <input type="submit" value="Post">
+        </form>
+        <%}%>
+        <div id="posts-displayed">
             <ul>
                 <%for(post of posts){%>
 
-                <%- include('_post') -%>
-                
+                    <%- include('_post') -%>
+
                 <%}%>
             </ul>
-
-    </div>
-</section>
-<section id="user-friends">
-    <h4>Following</h4>
-    <ul>
-        <%for(u of all_users){%>
-            <li>
-                <a href="/users/profile/<%=u.id%>"><%=u.name%></a>
-            </li>
-        <%}%>
+        </div>
+    </section>
+    <%if(locals.user){%>
+        <section id="user-friends">
+            <h4>Following</h4>
+            <ul>
+                <%for(u of all_users){%>
+                <li>
+                    <a href="/users/profile/<%=u.id%>"><%=u.name%></a>
+                </li>
+                <%}%>
     </ul>
-</section>
+    </section>
+    <%}%>
 </div>

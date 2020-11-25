@@ -7,14 +7,16 @@ h1 {
 
 #main-content {
   display: flex;
+  justify-content: center;
 }
 
 #main-content #feed-posts {
-  background-color: gray;
+  background-color: rgba(27, 39, 107, 0.465);
   position: relative;
-  margin-left: 10%;
-  width: 50%;
+  min-width: 50%;
   padding: 3%;
+  box-shadow: -10px 10px 20px 2px rgba(26, 25, 25, 0.774);
+  border-radius: 10px;
 }
 
 #main-content #feed-posts h4 {
@@ -34,12 +36,15 @@ h1 {
 }
 
 #main-content #feed-posts .each-post {
-  background-color: rgba(106, 83, 170, 0.746);
+  background-color: rgba(102, 100, 195, 0.472);
   height: auto;
   position: relative;
   padding: 3%;
   margin-top: 2%;
   margin-right: 5%;
+  border-top: 1.4px solid whitesmoke;
+  box-shadow: -10px 10px 20px 2px rgba(26, 25, 25, 0.774);
+  border-radius: 10px;
 }
 
 #main-content #feed-posts .each-post ul {
@@ -52,5 +57,7 @@ h1 {
   height: auto;
   margin-left: 5%;
   border-left: 1.5px solid lightgray;
-  background-color: lightpink;
+  background-color: rgba(27, 39, 107, 0.465);
+  box-shadow: -10px 10px 20px 2px rgba(26, 25, 25, 0.774);
+  border-radius: 10px;
 }
