@@ -1,14 +1,16 @@
-<li>
-    <%if((locals.user)&&(locals.user.id==comment.user.id)){%>
-    <button style="background-color: brown; ">
-        <a style="text-decoration: none; color: cornsilk;" href="/comments/destroy/<%=comment.id%>">Del</a>
-    </button>
-    <%}%>
+<li id="comment-<%= comment._id %>">
     <p>
-        <%=comment.content%>
-    </p>
-    <small>
-        By
-        <%=comment.user.name%>
-    </small>
+        <% if (locals.user && locals.user.id == comment.user.id){ %>
+        
+        <small>
+            <a class="delete-comment-button" href="/comments/destroy/<%= comment.id %>">X</a>
+        </small>
+        <% } %>
+        <%= comment.content %>
+        <br>
+        <small>
+            <%= comment.user.name %>
+        </small>
+    </p>    
+
 </li>

@@ -35,6 +35,9 @@ module.exports.tUsers = async function (req, res) {
 }
 // render the sign up page
 module.exports.signUp = function (req, res) {
+    if (req.isAuthenticated()){
+        return res.redirect('back');
+    }
     return res.render('user_sign_up', {
         title: "Flock | Sign Up"
     })
@@ -43,6 +46,9 @@ module.exports.signUp = function (req, res) {
 
 // render the sign in page
 module.exports.signIn = function (req, res) {
+    if (req.isAuthenticated()){
+        return res.redirect('back');
+    }
     return res.render('user_sign_in', {
         title: "Flock | Sign In"
     })
