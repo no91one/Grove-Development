@@ -1,0 +1,27 @@
+<title><%=profile_user.name%></title>
+<link rel="stylesheet" href="/css/user_profile.css">
+<h1>
+    Flock User's / Profile Page
+</h1>
+<img id="profile-pic" src="<%=user.avatar%>" alt="<%=user.name%>" width="100">
+    <div class="profile-container">
+        <%if(locals.user.id==profile_user.id){%>
+        <form action="/users/update/<%=profile_user.id%>" enctype="multipart/form-data" method="post">
+            <label for="avatar"><small>change profile picture</small></label>
+            <input type="file" name="avatar" id="avatar" placeholder="Profile picture">
+            <label for="name">Your name</label>
+            <input type="text" name="name" id="name" value="<%=user.name%>" required>
+            <label for="email">Your email</label>
+            <input type="email" name="email" id="email" value="<%=user.email%>" required>
+            <button type="submit">Update</button>
+        </form>
+
+        <%}else{%>
+        <p>
+            Name = <%=profile_user.name%>
+        </p>
+        <p>
+            Email = <%=profile_user.email%>
+        </p>
+        <%}%>
+    </div>

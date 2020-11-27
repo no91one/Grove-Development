@@ -1,16 +1,16 @@
-{   
+{
     // method to submit the form data for new post using AJAX
-    let createPost = function(){
+    let createPost = function () {
         let newPostForm = $('#new-post-form');
 
-        newPostForm.submit(function(e){
+        newPostForm.submit(function (e) {
             e.preventDefault();
 
             $.ajax({
                 type: 'post',
                 url: '/posts/create',
                 data: newPostForm.serialize(),
-                success: function(data){
+                success: function (data) {
                     let newPost = newPostDom(data.data.post);
                     $('#posts-displayed>ul').prepend(newPost);
                     deletePost($(' .delete-post-button', newPost));
@@ -24,10 +24,10 @@
                         type: 'success',
                         layout: 'topRight',
                         timeout: 1500
-                        
+
                     }).show();
 
-                }, error: function(error){
+                }, error: function (error) {
                     console.log(error.responseText);
                 }
             });
@@ -44,10 +44,8 @@
         <small>
             ${post.user.name}
         </small>
-        <button style="background-color: brown; ">
-            <a class="delete-post-button" style="text-decoration: none; color: cornsilk;" href="/posts/destroy/${post._id}">Del</a>
-        </button>
-    
+            <a class="delete-post-button" style="text-decoration: none; color: cornsilk;" href="/posts/destroy/${post._id}"><button style="background-color: brown; ">Del</button>
+            </a>
         <div class="post-comments">
             <form id="post-${post._id}-comments-form" action="/comments/create" id="new-comment-form" method="post">
                 <textarea name="content" id="new-comment-content" cols="20" rows="2" placeholder="Type here...">
@@ -66,14 +64,14 @@
 
 
     // method to delete a post from DOM
-    let deletePost = function(deleteLink){
-        $(deleteLink).click(function(e){
+    let deletePost = function (deleteLink) {
+        $(deleteLink).click(function (e) {
             e.preventDefault();
 
             $.ajax({
                 type: 'get',
                 url: $(deleteLink).prop('href'),
-                success: function(data){
+                success: function (data) {
                     $(`#post-${data.data.post_id}`).remove();
                     new Noty({
                         theme: 'relax',
@@ -81,9 +79,9 @@
                         type: 'success',
                         layout: 'topRight',
                         timeout: 1500
-                        
+
                     }).show();
-                },error: function(error){
+                }, error: function (error) {
                     console.log(error.responseText);
                 }
             });
@@ -96,8 +94,8 @@
 
 
     // loop over all the existing posts on the page (when the window loads for the first time) and call the delete post method on delete link of each, also add AJAX (using the class we've created) to the delete button of each
-    let convertPostsToAjax = function(){
-        $('#posts-displayed>ul>li').each(function(){
+    let convertPostsToAjax = function () {
+        $('#posts-displayed>ul>li').each(function () {
             let self = $(this);
             let deleteButton = $(' .delete-post-button', self);
             deletePost(deleteButton);
@@ -112,5 +110,5 @@
 
     createPost();
     convertPostsToAjax();
-    
+
 }
