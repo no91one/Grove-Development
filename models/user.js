@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: true
+        required: true,
     },
     name: {
         type: String,
@@ -22,7 +22,14 @@ const userSchema = new mongoose.Schema({
         type: String,
 
     }
-}, {
+},
+    {
+        toJSON: {
+            transform(doc, ret) {
+                delete ret.password;
+            },
+        },
+    }, {
     timestamps: true
 });
 
@@ -43,9 +50,9 @@ userSchema.statics.uploadedAvatar = multer(
             var filetypes = /jpeg|jpg|png/;
             var mimetype = filetypes.test(file.mimetype);
             var extname = filetypes.test(path.extname(file.originalname).toLowerCase());
-        
+
             if (mimetype && extname) {
-              return cb(null, true);
+                return cb(null, true);
             }
             cb("File upload only supports the following filetypes - " + filetypes);
             req.flash('error', "supports png and jpg formats only !");
