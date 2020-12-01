@@ -6,10 +6,21 @@
         By
         <%=comment.user.name%>
     </small>
+    <!-- likes -->
+    <small>
+        <% if (locals.user){ %>
+            <a class="toggle-like-button" data-likes="<%= comment.likes.length %>" href="/likes/toggle/?id=<%=comment._id%>&type=Comment">
+                    <%= comment.likes.length %> Likes
+            </a>
+        <% }else{ %>
+            <%= comment.likes.length %> Likes
+        <% } %>
+    </small>
     <%if((locals.user)&&(locals.user.id==comment.user.id)){%>
     <button style="background-color: brown; ">
         <a class="delete-comment-button" style="text-decoration: none; color: cornsilk;"
             href="/comments/destroy/<%=comment._id%>">Del</a>
     </button>
     <%}%>
+
 </li>

@@ -21,12 +21,12 @@ module.exports.home = async function (req, res) {
                     path: 'user'
                 }
             });
-    let users = await User.find({});
-    return res.render('home', {
-        title: "Home",
-        posts: posts,
-        all_users: users
-    });
+        let users = await User.find({});
+        return res.render('home', {
+            title: "Home",
+            posts: posts,
+            all_users: users
+        });
         
     } catch (err) {
         console.log("Error !", err);
