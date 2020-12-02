@@ -11,11 +11,9 @@
 
 <body>
     <%- include('_header'); %>
-
     <main id="layout-main">
         <%- body %>
     </main>
-    <%- include('_footer'); %>
 
     <%- script %>
     <script>
@@ -27,7 +25,7 @@
                 text: '<%=flash.success%>',
                 timeout: 1500
             }).show();
-        <%} if(flash.error && flash.error.length > 0) {%>
+        <%} if (flash.error && flash.error.length > 0) {%>
             new Noty({
                 theme: 'relax',
                 type: 'error',

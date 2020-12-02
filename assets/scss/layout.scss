@@ -1,9 +1,17 @@
 body{
     margin: 0;
-    background-color: rgb(180, 187, 245);
+    background-color: rgb(24, 31, 44);
+    color: antiquewhite;
+    // position: relative;
+    a{
+        text-decoration: none;
+        color: white;
+    }
 }
 #layout-main{
-    position: relative;
-    min-height: 100%;
-    margin-bottom: 5%;
+    width: 55vw;
+    // background-color: brown;
+    margin-left: 12%;
+    margin-top: 10%;
+    // display: inline-block;
 }

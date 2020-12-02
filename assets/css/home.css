@@ -1,25 +1,14 @@
-h1 {
-  text-align: center;
-  margin-bottom: 5%;
-  text-transform: uppercase;
-  font-weight: 900;
+#feed-posts #post-form-container {
+  margin-left: 5%;
 }
 
-#main-content {
-  display: flex;
-  justify-content: center;
+#feed-posts #post-form-container img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
 }
 
-#main-content #feed-posts {
-  background-color: rgba(27, 39, 107, 0.465);
-  position: relative;
-  min-width: 50%;
-  padding: 3%;
-  box-shadow: -10px 10px 20px 2px rgba(26, 25, 25, 0.774);
-  border-radius: 10px;
-}
-
-#main-content #feed-posts h4 {
+#feed-posts h4 {
   text-align: center;
   margin-bottom: 5%;
   font-size: large;
@@ -27,18 +16,17 @@ h1 {
   font-weight: 900;
 }
 
-#main-content #feed-posts [name="content"] {
+#feed-posts [name="content"] {
   margin-left: 25%;
 }
 
-#main-content #feed-posts ul {
+#feed-posts ul {
   list-style: none;
 }
 
-#main-content #feed-posts .each-post {
-  background-color: rgba(102, 100, 195, 0.472);
+#feed-posts .each-post {
+  background-color: transparent;
   height: auto;
-  position: relative;
   padding: 3%;
   margin-top: 2%;
   margin-right: 5%;
@@ -47,17 +35,6 @@ h1 {
   border-radius: 10px;
 }
 
-#main-content #feed-posts .each-post ul {
+#feed-posts .each-post ul {
   text-align: center;
-}
-
-#main-content #user-friends {
-  width: 30%;
-  padding: 10px;
-  height: auto;
-  margin-left: 5%;
-  border-left: 1.5px solid lightgray;
-  background-color: rgba(27, 39, 107, 0.465);
-  box-shadow: -10px 10px 20px 2px rgba(26, 25, 25, 0.774);
-  border-radius: 10px;
 }

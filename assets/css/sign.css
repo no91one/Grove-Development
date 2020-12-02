@@ -7,8 +7,9 @@ main {
 
 #sign-container {
   background-color: #104874;
-  width: 50%;
+  width: 100%;
   height: 50%;
+  margin-left: 10%;
   max-width: 960px;
   position: relative;
   padding: 2%;
@@ -36,6 +37,14 @@ main {
 }
 
 #sign-container input[type="submit"] {
+  width: 10%;
+  margin-left: 47%;
+  text-align: center;
+  height: 25px;
+  padding: 0;
+}
+
+#sign-container button {
   width: 10%;
   margin-left: 47%;
   text-align: center;

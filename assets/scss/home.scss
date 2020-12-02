@@ -1,25 +1,14 @@
 
-h1{
-    // display: block;
-    text-align: center;
-    margin-bottom: 5%;
-    // font-size: large;
-    text-transform: uppercase;
-    font-weight: 900;
-}
-#main-content{
-    display: flex;
-//    align-items: center;
-   justify-content: center;
     #feed-posts
     {
-        background-color: rgba(27, 39, 107, 0.465);
-        position: relative;
-        // margin-left: 25%;
-        min-width: 50%;
-        padding: 3%;
-        box-shadow: -10px 10px 20px 2px rgba(26, 25, 25, 0.774);
-        border-radius: 10px;
+        #post-form-container{
+            margin-left: 5%;
+            img{
+                border-radius: 50%;
+                width: 100px;
+                height: 100px;
+            }
+        }
         h4{
             // display: block;
             text-align: center;
@@ -34,9 +23,9 @@ h1{
         }
         ul{list-style: none;}
         .each-post{
-            background-color: rgba(102, 100, 195, 0.472);
+            background-color: transparent;
             height: auto;
-            position: relative;
+            // position: relative;
             padding: 3%;
             margin-top: 2%;
             margin-right: 5%;
@@ -48,15 +37,3 @@ h1{
             }
         }
     }
-    #user-friends{
-        width: 30%;
-        padding: 10px;
-        height: auto;
-        margin-left: 5%;
-        // margin-right: 10%;
-        border-left: 1.5px solid lightgray;
-        background-color: rgba(27, 39, 107, 0.465);
-        box-shadow: -10px 10px 20px 2px rgba(26, 25, 25, 0.774);
-        border-radius: 10px;
-    }
-}

@@ -2,58 +2,47 @@
     <%=title%>
 </title>
 <link rel="stylesheet" href="/css/home.css">
-<link rel="stylesheet" href="/css/chat_box.css">
-<h1>Flock home</h1>
-<div id="main-content">
-    <section id="feed-posts">
-            <h4>F e e d</h4>
-            <% if(locals.user){ %>
-            <form action="/posts/create" id="new-post-form" method="POST">
-                <textarea name="content" cols="30" rows="3" placeholder="Type Here..." required></textarea>
-                <input type="submit" value="Post">
-            </form>
-            <% } %>
-        
+<%-include('_aside_sec');%>
+<div id="home">
+    <h1>F E E D</h1>
+    <div id="main-content">
+
+        <section style="background: transparent;" id="feed-posts">
+            <section style="width: 100%;">
+                <% if(locals.user){ %>
+                <div id="post-form-container" style="background: transparent;" class="each-post">
+                    <img style="display: inline-block"; src="<%=user.avatar%>" alt="<%=user.name%>" width="100">
+                    <form style="display: inline-block;" action="/posts/create" id="new-post-form"
+                        method="POST">
+                        <textarea style="background-color:transparent;color: aliceblue;" name="content" cols="30" rows="3"
+                            placeholder="Type Here..." required></textarea>
+                        <input style="margin-left: 150%;"; type="submit" value="Post">
+                    </form>
+                </div>
+                <% } %>
+            </section>
+
             <div id="posts-displayed">
                 <ul>
                     <% for(post of posts){ %>
-                        
+
                     <%- include('_post') -%>
-                        
+
                     <%} %>
                 </ul>
             </div>
         </section>
-        
-        
-        <section id="user-friends">
-            <h4>Following</h4>
-            <% for(u of all_users){%>
-                <p>
-                    <a href="/users/profile/<%= u.id %>"><%= u.name %></a>
-                </p>
-            <% } %>
-        </section>
-
-        <%- include('_chat_box') -%>
+    </div>
+    <%-include('_aside_sec2');%>
 </div>
-
 <!-- importing this script for creating the comments -->
-<script src="/js/home_comments.js" ></script>
+<script src="/js/home_comments.js"></script>
 <script src="/js/home_posts.js"></script>
 
 <script src="js/toggle_likes.js"></script>
 <script>
-    $('.toggle-like-button').each(function(){
+    $('.toggle-like-button').each(function () {
         let self = this;
         let toggleLike = new ToggleLike(self);
     });
 </script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
-<script src="/js/chat_engine.js"></script>
-<% if (locals.user){ %>
-<script>
-    new ChatEngine('user-chat-box', '<%= locals.user.email %>')
-</script>
-<% } %>

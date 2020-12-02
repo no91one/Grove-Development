@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="/css/aside2.css">
+<link rel="stylesheet" href="/css/chat_box.css">
+<aside class="aside2">
+    <%if(locals.user){%>
+    <section id="user-friends">
+        <h4>You may know </h4>
+        <% for(u of all_users){%>
+        <p>
+            <a href="/users/profile/<%= u.id %>"><%= u.name %></a>
+        </p>
+        <% } %>
+    </section>
+    <%}%>
+    
+
+    <%- include('_chat_box') -%>
+    <%- include('_footer'); %>
+</aside>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+<script src="/js/chat_engine.js"></script>
+<% if (locals.user){ %>
+<script>
+    new ChatEngine('user-chat-box', '<%= locals.user.email %>')
+</script>
+<% } %>
