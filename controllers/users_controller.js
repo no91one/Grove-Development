@@ -97,7 +97,7 @@ module.exports.signIn = function (req, res) {
 // get the sign up data
 module.exports.create = async function (req, res) {
     if (req.file) {
-       var Avatar = User.avatarPath + '/' + req.file.filename;
+       const Avatar = User.avatarPath + '/' + req.file.filename;
     }
     if (req.body.password != req.body.confirm_password) {
         return res.redirect('back');
