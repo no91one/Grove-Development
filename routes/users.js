@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
-
+const User = require('../models/user');
 const usersController = require('../controllers/users_controller');
 
 router.get('/',passport.checkAuthentication, usersController.tUsers);
@@ -16,7 +16,7 @@ router.get('/sign-up', usersController.signUp);
 router.get('/sign-in', usersController.signIn);
 
 
-router.post('/create', usersController.create);
+router.post('/create',User.uploadedAvatar, usersController.create);
 
 router.get('/sign-out', usersController.removeSession);
 
