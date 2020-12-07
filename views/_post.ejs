@@ -1,4 +1,7 @@
 <li style="background: transparent;" class="each-post" id="post-<%=post._id%>">
+    <%if(post.photo){%>
+    <img style="width: 100%;" src="<%=post.photo%>" alt="Post-Image">
+    <%}%>
     <p>
         <%=post.content%>
     </p>

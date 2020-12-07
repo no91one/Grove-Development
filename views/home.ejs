@@ -11,12 +11,13 @@
             <section style="width: 100%;">
                 <% if(locals.user){ %>
                 <div id="post-form-container" style="background: transparent;" class="each-post">
-                    <img style="display: inline-block"; src="<%=user.avatar%>" alt="<%=user.name%>" width="100">
-                    <form style="display: inline-block;" action="/posts/create" id="new-post-form"
-                        method="POST">
-                        <textarea style="background-color:transparent;color: aliceblue;" name="content" cols="30" rows="3"
-                            placeholder="Type Here..." required></textarea>
-                        <input style="margin-left: 150%;"; type="submit" value="Post">
+                    <img style="display: inline-block" ; src="<%=user.avatar%>" alt="<%=user.name%>" width="100">
+                    <form style="display: inline-block;" action="/posts/create" id="new-post-form" method="POST"
+                        enctype="multipart/form-data">
+                        <input type="file" name="photo" id="photo" placeholder="Profile picture">
+                        <textarea style="background-color:transparent;color: aliceblue;" name="content" cols="30"
+                            rows="3" placeholder="Type Here..." required></textarea>
+                        <input style="margin-left: 50%;" ; type="submit" value="Post">
                     </form>
                 </div>
                 <% } %>

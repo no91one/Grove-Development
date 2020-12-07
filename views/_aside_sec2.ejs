@@ -6,7 +6,10 @@
         <h4>You may know </h4>
         <% for(u of all_users){%>
         <p>
-            <a href="/users/profile/<%= u.id %>"><%= u.name %></a>
+            <a href="/users/profile/<%= u.id %>">
+                <img style="width: 50px ; height: 50px;" src="<%=u.avatar%>" alt="">
+                <%= u.name %>
+            </a>
         </p>
         <% } %>
     </section>

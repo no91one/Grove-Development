@@ -5,11 +5,15 @@
 
         newPostForm.submit(function (e) {
             e.preventDefault();
+            var formData = new FormData(this);
 
             $.ajax({
                 type: 'post',
                 url: '/posts/create',
-                data: newPostForm.serialize(),
+                cache: false,
+                processData: false,
+                contentType: false,
+                data: formData,
                 success: function (data) {
                     let newPost = newPostDom(data.data.post);
                     $('#posts-displayed>ul').prepend(newPost);
@@ -38,6 +42,7 @@
     // method to create a post in DOM
     let newPostDom = function (post) {
         return $(`<li class="each-post" id="post-${post._id}">
+        <img style="width: 100%;" src="${post.photo}" alt="Post-Image">
         <p>
         ${post.content}
         </p>

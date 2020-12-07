@@ -1,11 +1,17 @@
 const Post = require('../models/post');
 const Comment = require('../models/comment');
 const Like = require('../models/like');
+const fs = require('fs');
+const path = require('path');
 module.exports.create = async function (req, res) {
+    if (req.file) {
+        var PhotoPath = Post.photoPath + '/' + req.file.filename;
+    }
     try {
         let post = await Post.create({
             content: req.body.content,
-            user: req.user._id
+            user: req.user._id,
+            photo:PhotoPath
         });
 
         if (req.xhr) {
@@ -43,6 +49,9 @@ module.exports.destroy = async function (req, res) {
             await Like.deleteMany({ likeable: post, onModel: 'Post' });
             await Like.deleteMany({ _id: { $in: post.comments } });
             await Comment.deleteMany({ post: req.params.id });
+            if (fs.existsSync(path.join(__dirname, '..', post.photo))) {
+                fs.unlinkSync(path.join(__dirname, '..', post.photo));
+            } 
             post.remove();
             if (req.xhr) {
                 return res.status(200).json({
