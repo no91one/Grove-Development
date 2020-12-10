@@ -4,9 +4,9 @@ const crypto = require('crypto');
 const User = require('../models/user');
 //tell passport to use new strategy for google login
 passport.use(new googleStartegy({
-        clientID: "700015262672-1s33ic3b99nm0u8v3lnqbpmt972pc5o7.apps.googleusercontent.com",
-        clientSecret: "LNLDIKaM07igo0Z3IZps_W-_",
-        callbackURL: "http://localhost:8100/users/auth/google/callback"
+    clientID: "700015262672-1s33ic3b99nm0u8v3lnqbpmt972pc5o7.apps.googleusercontent.com",
+    clientSecret: "LNLDIKaM07igo0Z3IZps_W-_",
+    callbackURL: "http://https://grove-development.herokuapp.com//users/auth/google/callback"
 },
     //callback function
     function (accessToken, refreshToken, profile, done) {
