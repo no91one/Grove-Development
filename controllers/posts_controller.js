@@ -3,10 +3,9 @@ const Comment = require('../models/comment');
 const Like = require('../models/like');
 const fs = require('fs');
 const path = require('path');
-var photoPath = path.join('/uploads/posts/photos');
 module.exports.create = async function (req, res) {
     if (req.file) {
-        var PhotoPath = photoPath + '/' + req.file.filename;
+        var PhotoPath = Post.photoPath + '/' + req.file.filename;
     }
     try {
         let post = await Post.create({
