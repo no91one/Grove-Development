@@ -4,7 +4,6 @@ const app = express();
 require("dotenv").config();
 const port = process.env.PORT || 8100;
 
-const chatport=process.env.PORT || 5000;
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
 // used for session cookie
@@ -27,7 +26,7 @@ const customMware = require('./config/middleware');
 // setup the chat server to be used with socket.io
 const chatServer = require('http').Server(app);
 const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
-chatServer.listen(chatport);
+chatServer.listen(5000);
 console.log('chat server is listening on port 5000');
 
 app.use(sassMiddleware(
