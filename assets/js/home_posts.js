@@ -41,7 +41,9 @@
 
     // method to create a post in DOM
     let newPostDom = function (post) {
-        return $(`<li class="each-post" id="post-${post._id}">
+        if (post.photo) {
+            return $(`<li class="each-post" id="post-${post._id}">
+
         <img style="width: 100%;" src="${post.photo}" alt="Post-Image">
         <p>
         ${post.content}
@@ -73,6 +75,40 @@
             </div>
         </div>
     </li>`)
+        }
+        else {
+            return $(`<li class="each-post" id="post-${post._id}">
+            <p>
+            ${post.content}
+            </p>
+            <small>
+                ${post.user.name}
+            </small>
+            <br>
+            <small>
+                
+                    <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${post._id}&type=Post">
+                        0 Likes
+                    </a>
+                
+            </small>
+                <a class="delete-post-button" style="text-decoration: none; color: cornsilk;" href="/posts/destroy/${post._id}"><button style="background-color: brown; ">Del</button>
+                </a>
+            <div class="post-comments">
+                <form id="post-${post._id}-comments-form" action="/comments/create" id="new-comment-form" method="post">
+                    <textarea name="content" id="new-comment-content" cols="20" rows="2" placeholder="Type here...">
+                                            </textarea>
+                    <input type="hidden" name="post" value="${post._id}">
+                    <input type="submit" value="Add Comment">
+                </form>
+                <div class="display-comments">
+                    <ul id="post-comments-${post._id}">
+                       
+                    </ul>
+                </div>
+            </div>
+        </li>`);
+        }
     }
 
 
