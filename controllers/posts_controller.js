@@ -11,7 +11,7 @@ module.exports.create = async function (req, res) {
         let post = await Post.create({
             content: req.body.content,
             user: req.user._id,
-            photo:PhotoPath
+            photo: PhotoPath
         });
 
         if (req.xhr) {
@@ -49,9 +49,11 @@ module.exports.destroy = async function (req, res) {
             await Like.deleteMany({ likeable: post, onModel: 'Post' });
             await Like.deleteMany({ _id: { $in: post.comments } });
             await Comment.deleteMany({ post: req.params.id });
-            if (fs.existsSync(path.join(__dirname, '..', post.photo))) {
-                fs.unlinkSync(path.join(__dirname, '..', post.photo));
-            } 
+            if (post.photo) {
+                if (fs.existsSync(path.join(__dirname, '..', post.photo))) {
+                    fs.unlinkSync(path.join(__dirname, '..', post.photo));
+                }
+            }
             post.remove();
             if (req.xhr) {
                 return res.status(200).json({
