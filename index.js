@@ -2,7 +2,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const app = express();
 require("dotenv").config();
-const port = Process.env.PORT || 3000 ;
+const port = process.env.PORT || 8100;
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
 // used for session cookie
@@ -66,12 +66,14 @@ app.use(session({
     saveUninitialized: false,
     resave: false,
     cookie: {
-        maxAge: (1000 * 60 * 100)
+        maxAge: (1000 * 60 * 100),
+        expires:Date.now()+1000 * 60 * 100
     },
     store: new MongoStore({
 
         mongooseConnection: db,
-        autoRemove: 'disabled'
+        autoRemove: 'disabled',
+        touchAfter:24*60*60
 
     }, function (err) { console.log(err || 'connect-mongodb setup Done !'); })
 }));
